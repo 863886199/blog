@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>Hyperspace by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}" />
+    <noscript><link rel="stylesheet" href="{% static 'blog/css/noscript.css' %}" /></noscript>
+  </head>
+  <body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Who we are</a></li>
+							<li><a href="#two">What we do</a></li>
+							<li><a href="#three">Get in touch</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1></h1>
+							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
+							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
+							<ul class="actions">
+								<li><a href="#1" class="button scrolly">Learn more</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+				{% for post in post_list %}
+					<section id="{{ post.pk }}" class="wrapper style2 spotlights">
+						<section>
+							<div class="content">
+								<div class="inner">
+									<h2>{{ post.title }}</h2>
+									<p>{{ post.excperpt }}</p>
+                   
+									<ul class="actions">
+										<li><a href="{{ post.get_absolute_url }}" class="button">继续阅读</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
+					{% empty %}
+					<div class="no-post">暂时没有文章发布</div>-->
+					{% endfor %}
+
+				
+			</div>
+
+
+    <!-- Scripts -->
+      <script src="{% static 'blog/js/jquery.min.js' %}"></script>
+      <script src="{% static 'blog/js/jquery.scrollex.min.js' %}"></script>
+      <script src="{% static 'blog/js/jquery.scrolly.min.js' %}"></script>
+      <script src="{% static 'blog/js/browser.min.js' %}"></script>
+      <script src="{% static 'blog/js/breakpoints.min.js' %}"></script>
+      <script src="{% static 'blog/js/util.js' %}"></script>
+      <script src="{% static 'blog/js/main.js' %}"></script>
+
+  </body>
+</html>
